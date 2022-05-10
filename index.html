@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://testmember.mycard520.com/zh-tw/Login/AppLink?qr_otp=12345 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>App</title>
+</head>
+<body>
+    <div>
+    </div>
+    <script src="./App_files/redirect.js"></script>
+    <script>
+        var qs = AppRedirect.queryString;
+        // Here we initiate the redirect process
+        AppRedirect.redirect({
+            iosApp: 'mycardapp://qrcode_login?qr_otp=' + qs['qr_otp'],
+            iosAppStore: 'https://apps.apple.com/tw/app/mycard-m/id1552121318',
+            // For this, your app need to have category filter: android.intent.category.BROWSABLE
+            android: {
+                'host': 'qrcode_login/?qr_otp=' + encodeURIComponent(qs['qr_otp']), // Host/path/querystring part in a custom scheme URL
+                // 'action': '', // Equivalent to ACTION in INTENTs
+                // 'category': '', // Equivalent to CATEGORY in INTENTs
+                // 'component': '', // Equivalent to COMPONENT in INTENTs
+                'scheme': 'mycardapp', // Scheme part in a custom scheme URL
+                'package': 'soft_world.mycard.mycardapp.test', // Package name in Play store
+                'fallback': 'https://app.mycard520.com.tw/mycardapp/'
+            }
+        });
+    </script>
+
+
+</body></html>
